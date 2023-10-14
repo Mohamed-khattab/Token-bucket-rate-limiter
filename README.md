@@ -24,4 +24,4 @@ The `UserTokenBucketManager` manages individual token buckets for users based on
 
 The main file (`main.go`) includes examples demonstrating the usage of the rate limiter for global, service, and user requests. To integrate the rate limiter into your applications, customize the provided examples.
 
-Feel free to explore and modify the code to suit your specific use case.
+In the examples, the rate limiter for global requests allows a maximum of 500 tokens to be consumed, with a refill rate of 5 tokens per second. Services A and B are limited to 50 tokens and 100 tokens, respectively, with refill rates of 10 tokens per second and 5 tokens per second. Individual user requests are limited to 20 tokens with a refill rate of 2 tokens per second based on their IP addresses.

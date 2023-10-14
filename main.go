@@ -102,7 +102,7 @@ func (utbm *UserTokenBucketManager) RequestFromUser(ip string) bool {
 }
 
 func main() {
-	globalTokenBucket := NewTokenBucket(1000, 1)
+	globalTokenBucket := NewTokenBucket(500, 1)
 
 	for i := 0; i < 2000; i++ {
 		go func() {
