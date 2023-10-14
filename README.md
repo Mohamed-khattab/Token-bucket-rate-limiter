@@ -1,27 +1,27 @@
 # Token Bucket Rate Limiter in Go
 
-This repository contains a simple implementation of a token bucket rate limiter in the Go programming language. The rate limiter is designed to control the rate of requests for different entities, such as global requests, requests from services A and B, and requests from individual users based on their IP addresses.
+This repository features a straightforward implementation of a token bucket rate limiter in Go. Designed for managing request rates across different entities, it handles global requests, services A and B, and individual users based on their IP addresses.
 
 ## TokenBucket Structure
 
-The `TokenBucket` structure represents a generic token bucket system. It includes methods for creating a new token bucket, refilling tokens based on elapsed time, and checking if there are enough tokens for a request.
+The `TokenBucket` structure embodies a generic token bucket system, equipped with methods for creating a new token bucket, refilling tokens based on elapsed time, and checking token availability for a request.
 
 ## Rate Limiting for Global, Services, and Users
 
 ### - Global Rate Limiter
 
-A global rate limiter is implemented to control the overall rate of requests. The `globalTokenBucket` instance limits the rate of requests to a maximum of 1000 requests per second.
+A global rate limiter orchestrates overall request control. The `globalTokenBucket` instance sets the ceiling for requests at 1000 per second.
 
 ### -  Service Rate Limiters
 
-Two rate limiters, `ServiceATokenBucket` and `ServiceBTokenBucket`, are designed to control the rate of requests for services A and B, respectively.
+Two specialized rate limiters, namely `ServiceATokenBucket` and `ServiceBTokenBucket`, govern request rates for services A and B, respectively.
 
 ### - User Token Bucket Manager
 
-The `UserTokenBucketManager` manages individual token buckets for users based on their IP addresses. Each user is limited to a rate of 2 requests per second.
+The `UserTokenBucketManager` oversees individual token buckets for users, identified by their IP addresses. Each user faces a limit of 2 requests per second.
 
 ## Example Usage
 
-The main file (`main.go`) includes examples demonstrating the usage of the rate limiter for global, service, and user requests. To integrate the rate limiter into your applications, customize the provided examples.
+The main file (`main.go`) provides illustrative examples showcasing the application of the rate limiter for global, service, and user requests. For seamless integration into your applications, feel free to tailor the provided examples.
 
-In the examples, the rate limiter for global requests allows a maximum of 500 tokens to be consumed, with a refill rate of 5 tokens per second. Services A and B are limited to 50 tokens and 100 tokens, respectively, with refill rates of 10 tokens per second and 5 tokens per second. Individual user requests are limited to 20 tokens with a refill rate of 2 tokens per second based on their IP addresses.
+In these examples, the global rate limiter permits consumption of up to 500 tokens with a refill rate of 5 tokens per second. Services A and B adhere to respective limits of 50 and 100 tokens, accompanied by refill rates of 10 and 5 tokens per second. Individual user requests are restricted to 20 tokens, replenished at a rate of 2 tokens per second based on their IP addresses.
