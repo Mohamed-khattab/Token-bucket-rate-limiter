@@ -50,10 +50,10 @@ func (tb *TokenBucket) Request(tokens float64) bool {
 }
 
 // ServiceATokenBucket represents a token bucket system for Service A.
-var ServiceATokenBucket = NewTokenBucket(5, 1)
+var ServiceATokenBucket = NewTokenBucket(50, 10)
 
 // ServiceBTokenBucket represents a token bucket system for Service B.
-var ServiceBTokenBucket = NewTokenBucket(10, 1)
+var ServiceBTokenBucket = NewTokenBucket(100, 5)
 
 // RequestFromServiceA simulates a request from Service A.
 func RequestFromServiceA() bool {
@@ -83,7 +83,7 @@ func (utbm *UserTokenBucketManager) GetUserTokenBucket(ip string) *TokenBucket {
 		return bucket
 	}
 
-	bucket := NewTokenBucket(2, 1)
+	bucket := NewTokenBucket(20, 1)
 	utbm.userTokenBuckets[ip] = bucket
 	return bucket
 }
