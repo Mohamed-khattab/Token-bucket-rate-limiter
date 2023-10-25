@@ -35,8 +35,7 @@ func (tb *TokenBucket) refill() {
 	tb.lastRefillTime = now
 }
 
-// Request checks if the token bucket has enough tokens for a request.
-// If yes, it deducts the tokens and returns true, otherwise returns false.
+// Request checks if the token bucket has enough tokens for a request ? deducts the tokens and returns true : false
 func (tb *TokenBucket) Request(tokens float64) bool {
 	tb.mu.Lock()
 	defer tb.mu.Unlock()
